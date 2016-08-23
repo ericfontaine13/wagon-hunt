@@ -1,0 +1,6 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, placeholder: "Coconut", label: "Choose your name" %>
+  <%= f.input :url, placeholder: "http://coconut.co", label: "Choose your url" %>
+  <%= f.button :submit, "OK", class: "btn btn-primary" %>
+  <%= link_to "Back to products", products_path, class: "btn btn-success" %>
+<% end %>
