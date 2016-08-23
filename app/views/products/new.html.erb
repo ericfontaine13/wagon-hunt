@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1 class="text-center">Add a product</h1>
+
+      <%= simple_form_for @product do |f| %>
+        <%= f.input :name, placeholder: "Coconut", label: "Choose your name" %>
+        <%= f.input :url, placeholder: "http://coconut.co", label: "Choose your url" %>
+        <%= f.button :submit, "Add", class: "btn btn-primary" %>
+        <%= link_to "Back to products", products_path, class: "btn btn-success" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

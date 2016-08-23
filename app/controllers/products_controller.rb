@@ -9,23 +9,31 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.create(:name,
+    @product = Product.new
   end
 
   def create
-    @product = Product.create(:name,
+    # @product = Product.new(product_params)
+    # @product.save
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      render :new
+    end
   end
 
   def edit
-    @product = Product.create(:name,
   end
 
   def update
-    @product = Product.create(:name,
   end
 
   def destroy
-    @product = Product.create(:name,
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :url)
   end
 
 end
