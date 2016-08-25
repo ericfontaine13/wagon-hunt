@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
- def index
+  def index
+    if params[:category]
+      @products = Product.where(category: params[:category])
+    else
       @products = Product.all
+    end
   end
 
   def show
@@ -14,7 +18,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save == true
+    if @product.save
       redirect_to products_path
     else
       render :new
@@ -25,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params) == true
+    if @product.update(product_params)
       redirect_to products_path
     else
       render :edit
@@ -40,7 +44,7 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:name, :tagline, :url)
+    params.require(:product).permit(:name, :tagline, :url, :category)
   end
 
   def find_product

@@ -1,0 +1,15 @@
+.card-category {
+  display: block;
+  text-align: center;
+  color: white;
+  line-height: 200px;
+  font-size: 25px;
+  font-weight: bold;
+  background: $red;
+}
+
+.card-category:hover {
+  color: white;
+  text-decoration: none;
+  background: red;
+}

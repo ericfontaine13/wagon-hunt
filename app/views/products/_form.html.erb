@@ -2,6 +2,7 @@
   <%= f.input :name, placeholder: "Coconut", label: "Add your name" %>
   <%= f.input :tagline, placeholder: "Best encoder ever", label: "What is your tagline?" %>
   <%= f.input :url, placeholder: "http://coconut.co", label: "What is your url?" %>
-  <%= f.button :submit, "OK", class: "btn btn-primary" %>
+  <%= f.input :category, collection: ["tech", "education", "design"], prompt: "What is your category?" %>
+  <%= f.button :submit, "Create", class: "btn btn-primary" %>
   <%= link_to "Back to products", products_path, class: "btn btn-success" %>
 <% end %>

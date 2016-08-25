@@ -9,11 +9,11 @@
                 <div class="product-arrow"></div>
                 <div class='product-count'>0</div>
               </div>
-
             <img src="https://unsplash.it/300/200/?random" alt="kudoz" class="product-image hidden-xs">
             <div class='product-body'>
              <h3><%= product.name %></h3>
-             <p><%=product.tagline %></p>
+             <h5><%=product.tagline %></h5>
+             <p>#<%= product.category %></p>
             </div>
             <ul class="list-inline product-controls hidden-sm hidden-xs">
               <li>
@@ -33,16 +33,7 @@
               </li>
             </ul>
           </div>
-
-
-
-
-
-
-
-
-
-          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
