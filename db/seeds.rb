@@ -8,7 +8,12 @@
 
 
 Product.destroy_all
+User.destroy_all
 
-Product.create!(name: "Kudoz", url: "http://getkudoz.com", tagline: "Tinder for job search")
-Product.create!(name: "Uslide", url: "http://uslide.io", tagline: "Youtube sucks for education")
-Product.create!(name: "Medpics", url: "http://medpics.com", tagline: "Share your diagnostics")
+boris = User.create!(email: "boris@lewagon.com", password: "testtest")
+sebastien = User.create!(email: "seb@lewagon.com", password: "testtest")
+
+Product.create!(user: boris, name: "Kudoz", url: "http://getkudoz.com", tagline: "Tinder for job search", category: "tech")
+Product.create!(user: boris, name: "Uslide", url: "http://uslide.io", tagline: "Youtube sucks for education", category: "education")
+Product.create!(user: sebastien, name: "Medpics", url: "http://medpics.com", tagline: "Share your diagnostics", category: "tech")
+Product.create!(user: sebastien, name: "Coconut", url: "http://coconut.co", tagline: "Best encoder ever", category: "design")

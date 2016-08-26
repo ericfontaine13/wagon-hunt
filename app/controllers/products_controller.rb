@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:category]
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
     if @product.save
       redirect_to products_path
     else
@@ -32,13 +34,17 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to products_path
     else
-      render :edit
+       render :edit
     end
   end
 
   def destroy
     @product.destroy
     redirect_to products_path
+  end
+
+  def product_count
+    @number_of_products = Product.count
   end
 
 private

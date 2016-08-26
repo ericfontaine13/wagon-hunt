@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def home
     @date = Date.today
-    @number_of_products = Product.all.size
+    @products = Product.count
   end
 
   def team
