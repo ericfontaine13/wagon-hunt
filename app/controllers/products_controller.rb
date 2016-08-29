@@ -31,16 +31,23 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
+    if @product.user == current_user
+      @product.update(product_params)
       redirect_to products_path
     else
-       render :edit
+      flash[:alert] = "Vous n'avez pas acces au projet."
+      render :edit
     end
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path
+    if @product.user == current_user
+      @product.destroy
+      redirect_to products_path
+    else
+      flash[:alert] = "Vous n'avez pas acces au projet."
+      render :edit
+    end
   end
 
   def product_count

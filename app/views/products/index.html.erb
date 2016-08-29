@@ -23,13 +23,17 @@
                 <% end %>
               </li>
                <li>
-                <%= link_to edit_product_path(product) do %>
-                 <i class="glyphicon glyphicon-pencil"></i>
+                <% if product.user == current_user %>
+                  <%= link_to edit_product_path(product) do %>
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <% end %>
                 <% end %>
               </li>
                <li>
-                <%= link_to product_path(product), method: :delete do %>
-                 <i class="glyphicon glyphicon-trash"></i>
+                <% if product.user == current_user %>
+                  <%= link_to product_path(product), method: :delete do %>
+                  <i class="glyphicon glyphicon-trash"></i>
+                  <% end %>
                 <% end %>
               </li>
             </ul>
